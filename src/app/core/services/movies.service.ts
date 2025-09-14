@@ -8,11 +8,17 @@ export class MovieService {
 
     private readonly _httpclient = inject(HttpClient)
 
-    getCategory(page: Signal<number>, category: Signal<string>) {
+    getCategoryPage(page: Signal<number>, category: Signal<string>) {
         //return this._httpclient.get<MovieIndex>(environment.TMBD_URL + '/movie/popular')
         return httpResource<MovieIndex>(() => ({
             url: environment.TMBD_URL + '/movie/' + category(), 
             params: { page: page() }
+        }))
+    }
+    getCategory(category: Signal<string>) {
+        //return this._httpclient.get<MovieIndex>(environment.TMBD_URL + '/movie/popular')
+        return httpResource<MovieIndex>(() => ({
+            url: environment.TMBD_URL + '/movie/' + category()
         }))
     }
         

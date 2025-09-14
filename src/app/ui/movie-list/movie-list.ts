@@ -12,7 +12,7 @@ export class MovieList {
   private readonly movieservice = inject(MovieService);
   page = signal(1)
   category = input.required<string>()
-  movieList = this.movieservice.getCategory(this.page, this.category)
+  movieList = this.movieservice.getCategoryPage(this.page, this.category)
 
  
 

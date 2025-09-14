@@ -1,0 +1,25 @@
+<div class="carousel"
+    #carousel
+    (mousedown)="onMouseDown($event)">
+    <div class="carousel-track">
+        @if (movieList.isLoading()) {
+            <p>Chargements en cours</p>
+        }@else {
+            @for(movie of movieList.value()?.results; track movie.id){
+                <div class="movie-card"
+                    [attr.data-id]="movie.id"
+                    [class.expanded]="expandedCardId === movie.id"
+                    (click)="toggleExpand(movie.id)">
+                <img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" />
+                
+                @if(expandedCardId === movie.id){
+                    <div class="extra-info">
+                    <h3>{{ movie.title }}</h3>
+                    <p>Année : {{ movie.release_date }}</p>        
+                    </div>
+                }
+                </div>
+            }
+        }
+  </div>
+</div>
