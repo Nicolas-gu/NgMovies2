@@ -1,0 +1,5 @@
+export const environment = {
+
+    API_TOKEN : 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MWI2NzM4NGVmZDE4Y2E5ODFjODJlNWZhZTA5NmMwMSIsIm5iZiI6MTc1NTYwMjYzMC45NDgsInN1YiI6IjY4YTQ1ZWM2NTA2MTYxNzNkMmZlNWNlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T4JezTUqg0GslZlWUe2Gs_5bL150VHwjXvuBiIqGhXo',
+    TMBD_URL: 'https://api.themoviedb.org/3'
+};

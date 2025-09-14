@@ -1,0 +1,10 @@
+@if (movieList.isLoading()) {
+    <p>Chargements en cours</p>
+}@else {
+    <button (click)="previousPage()">Previous</button>
+    <button (click)="nextPage()">Next</button>
+    @for (movie of movieList.value()?.results; track movie.id) {
+        <h4>{{movie.title}}</h4>
+    }
+
+}
