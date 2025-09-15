@@ -1,10 +1,11 @@
 import { Component, ElementRef, inject, input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MovieService } from '../../core/services/movies.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { HourMinutePipe } from '../../core/services/hour-minute-pipe';
 
 @Component({
   selector: 'app-movie-carousel',
-  imports: [CommonModule],
+  imports: [CommonModule, DatePipe],
   templateUrl: './movie-carousel.html',
   styleUrl: './movie-carousel.scss'
 })
@@ -19,6 +20,7 @@ export class MovieCarousel implements OnInit, OnDestroy {
   private startX = 0;
   private scrollLeft = 0;
   private moved = false;
+  
 
   ngOnInit() {
     // on attache globalement pour éviter les "blocages"
