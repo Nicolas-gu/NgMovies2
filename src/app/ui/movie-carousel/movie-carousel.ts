@@ -39,7 +39,7 @@ export class MovieCarousel implements OnInit, OnDestroy {
     this.expandedCardId = this.expandedCardId === id ? null : id;
   }
   onMouseDown = (event: MouseEvent) => {
-    if (event.button !== 0) return; // uniquement bouton gauche
+    if (event.button !== 0) return;
     this.isDown = true;
     const carousel = this.carouselRef.nativeElement;
     this.startX = event.pageX - carousel.offsetLeft;

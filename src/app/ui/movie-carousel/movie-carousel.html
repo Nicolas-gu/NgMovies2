@@ -10,14 +10,17 @@
                     [attr.data-id]="movie.id"
                     [class.expanded]="expandedCardId === movie.id"
                     (click)="toggleExpand(movie.id)">
-                <img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" />
+                    <img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" />
                 
-                @if(expandedCardId === movie.id){
-                    <div class="extra-info">
-                    <h3>{{ movie.title }}</h3>
-                    <p>Année : {{ movie.release_date }}</p>        
-                    </div>
-                }
+                    @if(expandedCardId === movie.id){
+                        <div class="extra-info">
+                            <div class="left">
+                                <h3>{{ movie.title }}</h3>
+                                <p>Année : {{ movie.release_date }}</p>
+                            </div>
+                            <button>Plus</button>        
+                        </div>
+                    }
                 </div>
             }
         }

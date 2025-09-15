@@ -35,6 +35,9 @@
       border-radius: 8px;
     }
     .extra-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
         margin-top: 0.5rem;
         font-size: 0.9rem;
         opacity: 0;
