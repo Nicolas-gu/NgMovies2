@@ -1,3 +1,78 @@
+
+.category{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding:30px 80px 0px 80px;
+    margin: 0;
+    color: white;
+}
+h3{
+    font-size: 1.2rem;
+}
+.button {
+  --dark: #000000;
+  --light: #ffffff;
+  --active: 0;
+
+  cursor: pointer;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  transform-origin: center;
+
+  background-color: transparent;
+
+  border: none;
+}
+
+.button:hover {
+  --active: 1;
+}
+
+.icon_cont {
+  overflow: clip;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: calc(var(--active) * 1.5rem + (1 - var(--active)) * 0.5rem);
+  height: calc(var(--active) * 1.5rem + (1 - var(--active)) * 0.5rem);
+  background-color: hsla(0, 0%, 85%, var(--active));
+
+  border: 1px solid var(--light);
+  border-radius: 9999px;
+  transition: all 0.5s ease-in-out;
+}
+
+.icon {
+  font-size: 0.75rem;
+  color: var(--dark);
+  line-height: 1rem;
+
+  transform: translateX(calc(-1rem * (1 - var(--active))));
+  transition: transform 0.5s ease-in-out;
+}
+
+.text_button {
+  position: relative;
+
+  display: inline-block;
+
+  padding-block: 0.5rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--light);
+
+  text-transform: capitalize;
+}
+
+
 .carousel {
   
   position: relative;
@@ -5,72 +80,45 @@
   overflow-x: auto;
   cursor: grab;
   user-select: none;
-  scrollbar-width: none; // Firefox
-  -ms-overflow-style: none; // IE/Edge
   &::-webkit-scrollbar {
-    display: none; // Chrome/Safari
+    display: none;
   }
   &.dragging {
     cursor: grabbing;
   }
+  .movie-list-container{
+    padding: 15px 0px;
+  }
   .carousel-track {
+    padding: 16px 60px;
     display: flex;
     gap: 1rem;
-    padding: 1rem;
+    
     position: relative;
     align-items: flex-start;
     
   }
   .movie-card {
     flex: 0 0 auto;
+    display: flex;
+    align-items: center;
     width: 320px;
     border-radius: 12px;
-    background: #1e1e1e;
-    color: white;
+    background: #000000;
     padding: 0.5rem;
-    text-align: start;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     cursor: pointer;
-    position: relative;
-    box-shadow: 2px 2px 15px rgb(63, 63, 63);
+    box-shadow: 2px 2px 15px rgb(0, 0, 0);
     img {
       width: 100%;
       border-radius: 8px;
     }
-    .extra-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        margin-top: 0.2rem;
-        font-size: 0.9rem;
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        
-        
-        h3 {
-          margin: 0.1rem 0;
-          font-size: 1rem;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-    }
-    &.expanded {
-      transform:  scale(1.05);
-      z-index: 100;
-      background: #292929;
-      box-shadow: 0px 0px 15px 5px #d10303;
-      .extra-info {
-          opacity: 1;
-          max-height: 200px;
-      }
-    }
+    
   }
   .movie-card:hover{
-    scale: 1.03;
+    scale: 1.15;
     box-shadow: 0px 0px 10px 5px #f51b1b;
+    z-index: 100;
   }
 }
 .carousel.dragging {

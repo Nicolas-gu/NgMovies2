@@ -16,7 +16,6 @@ export class MovieService {
         }))
     }
     getCategory(category: Signal<string>) {
-        //return this._httpclient.get<MovieIndex>(environment.TMBD_URL + '/movie/popular')
         return httpResource<MovieIndex>(() => ({
             url: environment.TMBD_URL + '/movie/' + category()
         }))

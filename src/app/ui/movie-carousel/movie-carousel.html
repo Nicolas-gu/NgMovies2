@@ -1,31 +1,28 @@
-<div class="carousel"
-    #carousel
-    (mousedown)="onMouseDown($event)">
-    <div >
-        @if (movieList.isLoading()) {
-            <p>Chargements en cours</p>
-        }@else {
-            <h2 class="category">Films {{category()}}</h2>
-            <div class="carousel-track">
-                @for(movie of movieList.value()?.results; track movie.id){
-                    <div class="movie-card"
-                        [attr.data-id]="movie.id"
-                        [class.expanded]="expandedCardId === movie.id"
-                        (click)="toggleExpand(movie.id)">
-                        <img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" />
-                    
-                        @if(expandedCardId === movie.id){
-                            <div class="extra-info">
-                                <div class="left">
-                                    <h3>{{ movie.title }}</h3>
-                                    <p>{{ movie.release_date | date:'yyyy' }}</p>
-                                </div>
-                                <button>Plus</button>        
-                            </div>
-                        }
-                    </div>
-                }
+<div class="list">
+    <div class="category">
+        <h3>{{category() | categoy}}</h3>
+        <button [routerLink]="'/movies/' + category()" class="button">
+            <div class="icon_cont">
+                <span class="icon">🡪</span>
             </div>
-        }
-  </div>
+            <span class="text_button">Plus</span>
+        </button>
+    </div>
+    <div class="carousel"
+        #carousel
+        (mousedown)="onMouseDown($event)">
+        <div class="movie-list-container">
+            @if (movieList.isLoading()) {
+                <p>Chargements en cours</p>
+            }@else {
+                <div class="carousel-track">
+                    @for(movie of movieList.value()?.results; track movie.id){
+                        <div class="movie-card">
+                            <img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" />
+                        </div>
+                    }
+                </div>
+            }
+    </div>
+    </div>
 </div>
