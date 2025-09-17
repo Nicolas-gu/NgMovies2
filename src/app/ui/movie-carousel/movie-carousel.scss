@@ -109,6 +109,9 @@ h3{
     transition: all 0.4s ease;
     cursor: pointer;
     box-shadow: 2px 2px 15px rgb(0, 0, 0);
+    a{
+      display: flex;
+    }
     img {
       width: 100%;
       border-radius: 8px;
@@ -126,5 +129,8 @@ h3{
   user-select: none;      // empêche la sélection du texte
 }
 .carousel.dragging img {
+  pointer-events: none;   // empêche l’image de capturer le drag
+}
+.carousel.dragging a {
   pointer-events: none;   // empêche l’image de capturer le drag
 }

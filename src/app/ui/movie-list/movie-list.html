@@ -1,10 +1,23 @@
-@if (movieList.isLoading()) {
-    <p>Chargements en cours</p>
-}@else {
-    <button (click)="previousPage()">Previous</button>
-    <button (click)="nextPage()">Next</button>
-    @for (movie of movieList.value()?.results; track movie.id) {
-        <h4>{{movie.title}}</h4>
-        <img [src]="'https://image.tmdb.org/t/p/w400' + movie.poster_path" [alt]="movie.title" />
+<div class="pagination-top">
+    <button class="pagination" (click)="previousPage()" [disabled]="page() === 1">Previous</button>
+    <span>Page {{ page() }}</span>
+    <button class="pagination" (click)="nextPage()">Next</button>
+</div>
+<div class="movie-list-container">
+    @if (movieList.isLoading()) {
+        <p>Chargements en cours</p>
+    }@else {
+        <div class="card-list">
+            @for (movie of movieList.value()?.results; track movie.id) {
+                <div class="card">
+                    <a [routerLink]="['/movie', movie!.id]" href=""><img [src]="'https://image.tmdb.org/t/p/w400' + movie.poster_path" [alt]="movie.title" /></a>
+                </div>
+            }
+        </div>
     }
-}
+</div>
+<div class="pagination-bottom">
+    <button class="pagination" (click)="previousPage()" [disabled]="page() === 1">Previous</button>
+    <span>Page {{ page() }}</span>
+    <button class="pagination" (click)="nextPage()">Next</button>
+</div>

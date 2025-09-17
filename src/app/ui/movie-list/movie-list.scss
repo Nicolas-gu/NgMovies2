@@ -1,0 +1,46 @@
+.movie-list-container{
+    padding: 60px;
+}
+.pagination-top{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.pagination-bottom{
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+}
+.card-list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: end;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;  
+}
+.card{
+    border: none;
+    width: 100%;
+    background: #000000;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: 2px 2px 15px rgb(0, 0, 0);
+    transition: all 0.4s ease;
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+}
+.card:hover{
+    scale: 1.02;
+    box-shadow: 0px 0px 10px 5px #f51b1b;
+}
+.card a img{
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: 250ms ease-in-out;
+}
+

@@ -1,10 +1,10 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { MovieService } from '../../core/services/movies.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './movie-list.html',
   styleUrl: './movie-list.scss'
 })
@@ -25,10 +25,12 @@ export class MovieList {
 
   nextPage(){
     this.page.update(p => p + 1)
+    window.scrollTo({ top:0, behavior: 'smooth'})
   }
   previousPage(){
     if(this.page() > 1){
       this.page.update(p => p - 1)
+      window.scrollTo({ top:0, behavior: 'smooth'})
     }
   }
 

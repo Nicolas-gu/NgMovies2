@@ -18,11 +18,10 @@
                 <div class="carousel-track">
                     @for(movie of movieList.value()?.results; track movie.id){
                         <div class="movie-card">
-                            <img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" />
+                            <a [routerLink]="['/movie', movie!.id]" href=""><img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" /></a>
                         </div>
                     }
                 </div>
             }
-    </div>
     </div>
 </div>
