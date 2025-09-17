@@ -85,6 +85,7 @@ h3{
   }
   &.dragging {
     cursor: grabbing;
+    user-select: none;
   }
   .movie-list-container{
     padding: 15px 0px;
@@ -124,13 +125,9 @@ h3{
     z-index: 100;
   }
 }
-.carousel.dragging {
-  cursor: grabbing;
-  user-select: none;      // empêche la sélection du texte
-}
 .carousel.dragging img {
-  pointer-events: none;   // empêche l’image de capturer le drag
+  pointer-events: none;
 }
 .carousel.dragging a {
-  pointer-events: none;   // empêche l’image de capturer le drag
+  pointer-events:none;
 }

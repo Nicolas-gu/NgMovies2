@@ -18,7 +18,9 @@
                 <div class="carousel-track">
                     @for(movie of movieList.value()?.results; track movie.id){
                         <div class="movie-card">
-                            <a [routerLink]="['/movie', movie!.id]" href=""><img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" /></a>
+                            <a [routerLink]="['/movie', movie!.id]" (click)="onClick($event)">
+                                <img [src]="'https://image.tmdb.org/t/p/w400' + movie.backdrop_path" [alt]="movie.title" />
+                            </a>
                         </div>
                     }
                 </div>

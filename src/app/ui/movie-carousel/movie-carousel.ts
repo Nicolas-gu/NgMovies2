@@ -19,6 +19,7 @@ export class MovieCarousel implements OnInit, OnDestroy {
   private isDown = false;
   private startX = 0;
   private scrollLeft = 0;
+  private moved = false;
   
 
   ngOnInit() {
@@ -34,11 +35,10 @@ export class MovieCarousel implements OnInit, OnDestroy {
   onMouseDown = (event: MouseEvent) => {
     if (event.button !== 0) return;
     this.isDown = true;
+    this.moved = false;
     const carousel = this.carouselRef.nativeElement;
     this.startX = event.pageX - carousel.offsetLeft;
     this.scrollLeft = carousel.scrollLeft;
-    
-    carousel.classList.add('dragging');
   };
 
   onMouseUp = () => {
@@ -53,6 +53,21 @@ export class MovieCarousel implements OnInit, OnDestroy {
     const carousel = this.carouselRef.nativeElement;
     const x = event.pageX - carousel.offsetLeft;
     const walk = (x - this.startX) * 1.5;
+
+    if(Math.abs(walk) > 5){
+      this.moved = true;
+      if(!carousel.classList.contains('dragging')){
+        carousel.classList.add('dragging');
+      }
+    }
     carousel.scrollLeft = this.scrollLeft - walk;
   };
+
+  onClick(event: MouseEvent){
+    if(this.moved){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    this.moved = false;
+  }
 }
